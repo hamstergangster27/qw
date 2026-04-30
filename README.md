@@ -19,7 +19,7 @@ There are 5 flags in total:
 `detail` shows the details about a file/folder (name, type, size in bytes, permissions, last write time).
 `dirs` shows the directories only.
 `files` shows the files only.
-`symlins` shows symlinks only (Linux only).
+`symlink` shows symlinks only (Linux only).
 
 You can stack them too.
 `qw hidden detail` shows hidden files and folders and also shows details for them and for regular files and folders.
