@@ -15,7 +15,7 @@ There are 4 flags in total:
 - files
 
 `hidden` shows the hidden dirs and files.
-`detail` shows the details about a file (name, size in bytes, permissions, last write time).
+`detail` shows the details about a file/folder (name, type, size in bytes, permissions, last write time).
 `dirs` shows the directories only.
 `files` shows the files only.
 
