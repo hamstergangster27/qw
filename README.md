@@ -4,7 +4,7 @@ An alternative to the standard ls command in Linux (or any other OS) written in 
 
 # Installation 
 
-To install qw, you can either compile it yourself with the ![Nim compiler](https://nim-lang.org) or downloading the package here on GitHub.
+To install qw, you can either compile it yourself with the ![Nim compiler](https://nim-lang.org) or download the package here on GitHub.
 
 # Usage
 
