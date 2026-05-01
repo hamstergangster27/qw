@@ -23,7 +23,7 @@ There are 5 flags in total:
 
 You can stack them too.
 `qw hidden detail` shows hidden files and folders and also shows details for them and for regular files and folders.
-`qw hidden files` shows hidden files (note: `files` shows only files, even with `hidden`).
+`qw hidden files` shows hidden files (note: `files` shows only files, even with `hidden` It will show regular files and hidden files.).
 
 Red means symlink, blue means directory and green means file.
 
