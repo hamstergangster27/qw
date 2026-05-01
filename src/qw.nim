@@ -60,33 +60,46 @@ proc get(): seq[Result] =
   for kind, path in walkDir(getCurrentDir()):
     result.add((kind, path))
 
-proc printAll(res: seq[Result]) =
-  for x in res:
-    echo x.path
+proc printAll(res: seq[Result], stacked: bool) =
+  if stacked == true:
+    for x in res:
+      echo x.path
+  else:
+    for x in res:
+      stdout.write(x.path & "  ")
+    stdout.write($'\n')
 
 proc route() =
   var res = get()
   var hidden: bool
   var detailed: bool
+  var stacked: bool
   for i in 1..paramCount():
     if paramStr(i) == "hidden":
       hidden = true
       continue
-    if paramStr(i) == "detail":
+    elif paramStr(i) == "detail":
       detailed = true
       continue
-    case paramStr(i)
-    of "symlinks":
-      res = symlinks(res)
-    of "dirs":
-      res = dirs(res)
-    of "files":
-      res = files(res)
+    else:
+      case paramStr(i)
+      of "symlinks":
+        res = symlinks(res)
+      of "dirs":
+        res = dirs(res)
+      of "files":
+        res = files(res)
+      of "stacked":
+        stacked = true
+      else:
+        echo "Not enough arguments".red()
+        quit 1
+    
   if hidden == false: res = filterOutHidden(res)
   if detailed: 
     detail(res).echo
     return
   res = color(res)
-  printAll(res)
+  printAll(res, stacked)
 
 route()
