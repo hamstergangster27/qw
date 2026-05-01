@@ -69,6 +69,13 @@ proc printAll(res: seq[Result], stacked: bool) =
       stdout.write(x.path & "  ")
     stdout.write($'\n')
 
+proc sortAlphabetically(res: seq[Result]): seq[Result] =
+  result = res
+  for i in 0..<result.len:
+    for j in i+1..<result.len:
+      if cmp(result[i].path, result[j].path) > 0:
+        swap(result[i], result[j])
+
 proc route() =
   var res = get()
   var hidden: bool
@@ -100,6 +107,7 @@ proc route() =
     detail(res).echo
     return
   res = color(res)
+  res = sortAlphabetically(res)
   printAll(res, stacked)
 
 route()
