@@ -18,7 +18,9 @@ proc detail(res: seq[Result]): string =
 
 func filterOutHidden(res: seq[Result]): seq[Result] =
   for x in res:
-    if not x.path.startsWith("."):
+    if isHidden(x.path):
+      continue
+    else:
       result.add(x)
 
 func filterOutDirs(res: seq[Result]): seq[Result] =
@@ -80,7 +82,7 @@ proc route() =
       res = dirs(res)
     of "files":
       res = files(res)
-  if not hidden: res = filterOutHidden(res)
+  if hidden == false: res = filterOutHidden(res)
   if detailed: 
     detail(res).echo
     return
