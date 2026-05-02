@@ -1,6 +1,7 @@
 # qw
 
 An alternative to the standard ls command in Linux (or any other OS) written in Nim. 
+**Note: this project was moved to [Codeberg](https://codeberg.org/hamstergangster27/qw)**
 
 # Installation 
 
